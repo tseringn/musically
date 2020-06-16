@@ -1,13 +1,12 @@
 class SessionsController<ApplicationController
+   before_action :authorized, except: [:welcome, :create, :new]
     
-    def new
-    
+   
+   def new
     end
 
     def login
     end
-
-
 
     def create
         @user = User.find_by(username: params[:username])
@@ -24,6 +23,8 @@ class SessionsController<ApplicationController
       else flash[errors]=["#{params[:username]} is not a user name!"]
          redirect_to '/login'
       end
+
+     
      end
 
      

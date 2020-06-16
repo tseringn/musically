@@ -2,7 +2,7 @@
 Artist: <%= @song.artist %>
 Genre: <%= @song.genre %>
 Likes: <%= @song.likes %>
-<%= youtube_video @song.url %>
+<iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+@song.code %>"></iframe>
 <%= link_to "Edit Song Information", edit_song_path(@song)%>
 <%= link_to "Song Index", songs_path %>
 <%= button_to "Add Like", song_path(@song), method: :post %>

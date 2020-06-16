@@ -1,7 +1,4 @@
 class PlaylistsController < ApplicationController
-<<<<<<< HEAD
-    
-=======
     before_action :find_playlist, only: [:show, :update, :edit, :destroy]
 
     def index
@@ -13,10 +10,14 @@ class PlaylistsController < ApplicationController
     end
 
     def edit
-
+        @songs = Song.all
     end
 
     def update
+        byebug
+        @song = Song.find(params[:playlist][:songs])
+        @playlist.songs << @song
+        redirect_to playlist_path(@playlist)
     end
 
     def new
@@ -26,7 +27,6 @@ class PlaylistsController < ApplicationController
 
     def create
         @playlist = Playlist.create(playlist_params)
-        SongPlaylist.create(playlist_id: @playlist.id)
         redirect_to playlists_path
     end
 
@@ -44,5 +44,4 @@ class PlaylistsController < ApplicationController
     def find_playlist
         @playlist = Playlist.find(params[:id])
     end
->>>>>>> d9f99d78b3959011f7f8889fc0b26802e5db0450
 end

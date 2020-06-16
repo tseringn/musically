@@ -11,10 +11,11 @@ class SongPlaylistsController < ApplicationController
 
     def edit
         @songs = Song.all
-        @song_playlist = SongPlaylist.find_by(params[:id])
+        @song_playlist = SongPlaylist.find(params[:id])
     end
 
     def update
+        byebug
         @song_playlist.update(song_playlist_params)
         redirect_to playlist_path(@song_playlist.playlist)
     end
