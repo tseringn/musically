@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :songs
   resources :users
   get 'authorized', to: 'sessions#page_requires_login'
-  post '/songs/:id', to: 'songs#like', as: "like_song"
+  post '/songs/:id', to: 'songs#like'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

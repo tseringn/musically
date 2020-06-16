@@ -28,11 +28,9 @@ class SongsController < ApplicationController
         end
     end
 
-    def index
-    end
 
     def show
-        youtube_video @song.url
+        
     end
 
     def edit

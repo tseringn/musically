@@ -1,0 +1,4 @@
+<%= form_for @playlist do |f| %>
+    <%= f.collection_select :songs, @songs, :id, :name %>
+    <%= f.submit %>
+    <%end%>

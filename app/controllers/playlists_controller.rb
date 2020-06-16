@@ -10,10 +10,14 @@ class PlaylistsController < ApplicationController
     end
 
     def edit
-
+        @songs = Song.all
     end
 
     def update
+        byebug
+        @song = Song.find(params[:playlist][:songs])
+        @playlist.songs << @song
+        redirect_to playlist_path(@playlist)
     end
 
     def new
@@ -23,7 +27,6 @@ class PlaylistsController < ApplicationController
 
     def create
         @playlist = Playlist.create(playlist_params)
-        SongPlaylist.create(playlist_id: @playlist.id)
         redirect_to playlists_path
     end
 
