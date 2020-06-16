@@ -2,3 +2,4 @@
 <% @songs.each do |song| %>
     <%= render partial: 'song', locals: {song: song}%>
 <% end %>
+<%= link_to "Create a Song", new_song_path%>
