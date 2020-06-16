@@ -1,9 +1,16 @@
-<h1 class='page_header'>Hello From Login<h1>
+<h1 class='page_header' style="text-align : center">Excited to biring you back!<h1>
+
+<div class='justify-content-center'>
+
 <% if flash[errors] %>
   <h3 style='color:red'><%=flash[errors][0]%>ll</h3>
 <% end %>
+</div>
+
+<div class='justify-content-center'>
 <%= form_for @user do |f| %>
 <%= f.text_field :username, placeholder: "choose a username"%><br>
 <%= f.password_field :username, placeholder: "password please..."%><br>
 <%= f.submit :"login"%>
 <% end %>
+</div>
