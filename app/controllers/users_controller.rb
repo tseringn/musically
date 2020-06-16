@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:edit, :show, :update]
-    # skip_before_action :authorized, only: [:new, :create]
+    skip_before_action :authorized, only: [:new, :create]
 
     def welcome
         @user=User.new

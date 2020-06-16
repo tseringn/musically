@@ -1,7 +1,4 @@
 class PlaylistsController < ApplicationController
-<<<<<<< HEAD
-    
-=======
     before_action :find_playlist, only: [:show, :update, :edit, :destroy]
 
     def index
@@ -44,5 +41,4 @@ class PlaylistsController < ApplicationController
     def find_playlist
         @playlist = Playlist.find(params[:id])
     end
->>>>>>> d9f99d78b3959011f7f8889fc0b26802e5db0450
 end
