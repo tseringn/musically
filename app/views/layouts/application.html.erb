@@ -31,6 +31,22 @@
     <li class="nav-item active">
         <a class="nav-link" href='<%="#{songs_path}"%>'>Songs <span class="sr-only"></span></a>
       </li>
+      <% if @current_user%>
+      <li class="nav-link">
+         Welcome, <%=@current_user.name%>
+         </li>
+         <li class="nav-link">
+         <%= link_to "Logout", logout_path %>
+         </li>
+      <%else%>
+      <li class="nav-link">
+      <%= link_to "Sign Up", new_user_path%>
+      </li>
+      <li class="nav-link">
+      <%= link_to "Login", new_login_path%>
+      </li>
+      <%end%>
+      
       <li class="nav-item">
         <a class="nav-link " href="#"></a>
       </li>

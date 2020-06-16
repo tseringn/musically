@@ -5,8 +5,8 @@
  <img src="<%=url_for(@user.profile_pic)%>" width=250, height=250>  
 <% end %>
 <br>
-<%=button_to "Edit Profile", edit_user_path method: :get%>
-<%# <%=button_to "Delete Account", delete %> 
+<%=button_to "Edit Profile", edit_user_path(@user), method: :get%>
+ <%#button_to "Delete Account", delete %> 
 My playlists
 <ul>
 <% @user.playlists.each do |pl| %>
