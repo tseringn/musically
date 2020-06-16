@@ -1,0 +1,3 @@
+<% Song.all.each do |song| %>
+    <%= render partial: 'song', locals: {song: song}%>
+<% end %>

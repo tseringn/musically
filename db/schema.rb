@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_222441) do
     t.string "artist"
     t.string "genre"
     t.integer "number_of_plays", default: 0
-    t.boolean "favorite", default: false
+    t.integer "likes", default: 0
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
