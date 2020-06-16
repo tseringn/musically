@@ -1,5 +1,5 @@
 class SessionsController<ApplicationController
-   skip_before_action :authorized, only: [:welcome, :create, :new]
+   skip_before_action :authorized, except: [:logout]
     
    def welcome
       render :layout => 'welcome_layout'
