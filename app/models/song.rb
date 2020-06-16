@@ -24,8 +24,8 @@ class Song < ApplicationRecord
         self.likes +=1
     end
 
-    def youtube_video(url)
-        render partial: 'songs/video', :locals => { :url => url }
-    end 
+    def code
+        self.url.split('/').last if self.url
+      end
 
 end

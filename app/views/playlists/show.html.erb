@@ -1,6 +1,7 @@
 <%= @playlist.title %>
-<%= link_to "Add Songs to Playlist", edit_song_playlist_path %>
+<%= link_to "Add Songs to Playlist", edit_playlist_path %>
 <% @playlist.songs.each do |song| %>
     <%= render partial: 'songs/song', locals: {song: song}%>
     <%end%>
     <%= button_to "Delete Playlist", playlist_path(@playlist), method: :delete %>
+    <%= link_to "Back to All Playlists", playlists_path %>
