@@ -1,0 +1,9 @@
+<h1>Hello From Login<h1>
+<% if flash[errors] %>
+  <h3 style='color:red'><%=flash[errors][0]%>ll</h3>
+<% end %>
+<%= form_for @user do |f| %>
+<%= f.text_field :username, placeholder: "username here...."%><br>
+<%= f.password_field :username, placeholder: "password please..."%><br>
+<%= f.submit :"login"%>
+<% end %>

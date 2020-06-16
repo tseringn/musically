@@ -1,0 +1,6 @@
+<%= f.text_field :name, placeholder: 'full name please' %><p>
+<%= f.text_field :username, placeholder: 'username...' %><p>
+<%= f.password_field :password, placeholder: 'set your password' %><p>
+<%= f.label :"upload your profile picture" %><p>
+<%=f.file_field :profile_pic, class: "value"%><p>
+<%= f.submit :"create account"%>

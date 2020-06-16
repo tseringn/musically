@@ -1,0 +1,15 @@
+<hr color='purple'>
+<h1><%=@user.name%><br>
+<hr color='purple'>
+<% if @user.profile_pic.attached? %>
+ <img src="<%=url_for(@user.profile_pic)%>" width=250, height=250>  
+<% end %>
+<br>
+<%=button_to "Edit Profile", edit_user_path% >
+<%=button_to "Delete Account", delete_user_path% >
+My playlists
+<ul>
+<% @user.playlists.each do |pl| %>
+<li><%=link_to pl.title, playlist_path(pl.id) %></li>
+<% end %>
+</ul>
