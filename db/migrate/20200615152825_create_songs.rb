@@ -5,7 +5,7 @@ class CreateSongs < ActiveRecord::Migration[6.0]
       t.string :artist
       t.string :genre
       t.integer :number_of_plays, default: 0
-      t.boolean :favorite, default: false
+      t.integer :likes, default: 0
       t.string :url
       t.timestamps
     end
