@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:edit, :show, :update]
-    # skip_before_action :authorized, only: [:new, :create]
+    skip_before_action :authorized, except: [:new, :create, :welcome]
 
     def welcome
         @user=User.new
@@ -14,8 +13,13 @@ class UsersController < ApplicationController
 
     def create
         @user=User.create(user_params)
-        session[:user_id] = @user.id
-        redirect_to user_path(@user.id)
+        if @user.valid?
+            session[:user_id] = @user.id
+            redirect_to user_path(@user.id)
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to new_user_path
+        end
      end
 
      def show
@@ -31,30 +35,8 @@ class UsersController < ApplicationController
      redirect_to user_path(@user.id)
      end
 
-
-
-
-    # def login
-    #     @user=User.where("username = '#{login_params(:username)}'")
-    #     if  @user ==User.where("password = '#{login_params(:password)}'")
-    #         byebug
-    #         redirect_to user_path(@user.id)
-    #     else
-    #         @user='No no password and user name matched, please try again'
-    #         redirect_to  "login"
-    #     end
-
-    # end
-
-    
-    
-
-
     private
 
-# def login_params(*args)
-#     params.permit(*args)
-# end
     def user_params
        params.require(:user).permit(:name, :username, :password, :profile_pic)
     end

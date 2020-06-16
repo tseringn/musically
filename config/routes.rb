@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  get '/', to: 'sessions#welcome'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
+  get 'welcome', to: 'sessions#welcome'
+  post '/sessions', to: 'sessions#create', as: 'login'
+  get '/sessions/new', to: 'sessions#new', as: 'new_login'
+  get '/sessions/logout', to: 'sessions#logout', as: 'logout'
+  
   
   resources :plays
   resources :song_playlists

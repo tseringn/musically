@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_212120) do
+ActiveRecord::Schema.define(version: 2020_06_15_222441) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,17 +59,16 @@ ActiveRecord::Schema.define(version: 2020_06_16_212120) do
     t.string "artist"
     t.string "genre"
     t.integer "number_of_plays", default: 0
-    t.boolean "favorite", default: false
+    t.integer "likes", default: 0
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "likes", default: 0
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

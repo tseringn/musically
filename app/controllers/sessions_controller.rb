@@ -1,5 +1,5 @@
 class SessionsController<ApplicationController
-   before_action :authorized, except: [:welcome, :create, :new]
+   skip_before_action :authorized, only: [:welcome, :create, :new]
     
    def welcome
       render :layout => 'welcome_layout'
@@ -10,24 +10,18 @@ class SessionsController<ApplicationController
     end
 
     def create
-        @user = User.find_by(username: params[:username])
-      if @user
-        if @user.password == params[:password]
-            
+        @user = User.find_by(username: params[:session][:username])
+      if @user && @user.authenticate(params[:session][:password])
            session[:user_id] = @user.id
-           
            redirect_to user_path(@user.id)
         else
-            flash[errors]=["Wrong password"]
-           redirect_to '/login'
+            flash[:errors]= "Username or Password Is Incorrect"
+           redirect_to new_login_path
         end
-      else flash[errors]=["#{params[:username]} is not a user name!"]
-         redirect_to '/login'
       end
 
-     
-     end
-
-     
-
+      def logout
+         session.delete(:user_id)
+         redirect_to '/welcome'
+      end
 end
