@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     
     def new
         @user=User.new
+        render :layout => "welcome_layout"
     end
 
     def create

@@ -1,11 +1,12 @@
 class SessionsController<ApplicationController
    skip_before_action :authorized, only: [:welcome, :create, :new]
     
+   def welcome
+      render :layout => 'welcome_layout'
+   end
    
    def new
-    end
-
-    def login
+      render :layout => "welcome_layout"
     end
 
     def create

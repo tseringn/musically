@@ -1,6 +1,8 @@
-<hr color ='red'>
-Welcome To Musically
-<hr color ='red'>
+<br>
+<br>
+<br>
+<br>
+<h1 class="page_header" style='text-align : center'>Welcome To Musically</h1>
 
 <% if logged_in? %>
     <h1>You are Logged In, <%= @current_user.name %></h1>
@@ -10,5 +12,16 @@ Welcome To Musically
 <br>
 
 
+<br>
+<br>
+<br>
+<br><br><br>
+<div class="d-flex justify-content-center">
+<%=button_to "Sign In", login_path, method: :get, :class => "btn btn-outline-primary btn-lg"%>
+</div>
+<br><br><br><br><br>
+<div class="d-flex justify-content-center">
+<%=button_to "Create an account",  new_user_path, method: :get, :class => "btn btn btn-outline-primary btn-sm"%>
+</div>
 
 
