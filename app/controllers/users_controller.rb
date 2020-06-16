@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, except: [:new, :create, :welcome]
+    skip_before_action :authorized, only: [:new, :create, :welcome]
 
     def welcome
         @user=User.new
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     
     def new
         @user=User.new
-        render :layout => "welcome_layout"
+        
     end
 
     def create
