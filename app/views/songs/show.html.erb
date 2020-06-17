@@ -1,9 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1, h2, h3 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-align: center;
+    color: lightblue;
+    padding: 20px;
+}
+
+body {
+    align: center;
+}
+
+
+
+</style>
+</head>
+<body>
 <h1><%= @song.name %></h1>
-<p>Artist: <%= @song.artist %></p>
-<p>Genre: <%= @song.genre %></p>
-<p>Likes: <%= @song.likes %><p>
-<p><iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+@song.code %>"></iframe></p>
-<p><%= link_to "Edit Song Information", edit_song_path(@song)%></p>
-<p><%= link_to "Song Index", songs_path %></p>
-<p><%= button_to "Like", song_path(@song), method: :post %></p>
-<p><%= button_to "Delete Song", song_path(@song), method: :delete %></p>
+<body>
+<div class="song-attributes">
+<h3>Artist: <%= @song.artist %><br>
+Genre: <%= @song.genre %><br>
+Likes: <%= @song.likes %><br><br>
+<iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+@song.code %>"></iframe>
+</div>
+<h2>
+<button type="button" class="btn btn-outline-info"><%= link_to "Edit Song Information", edit_song_path(@song)%></button>
+<button type="button" class="btn btn-outline-info"><%= link_to "Song Index", songs_path %></button>
+<button type="button" class="btn btn-outline-info"><%= link_to "Add Like", song_path(@song), method: :post %></button>
+<button type="button" class="btn btn-outline-info"><%= link_to "Delete Song", song_path(@song), method: :delete %></button>
+    </h3>
+    </h2>
+</body>
+
