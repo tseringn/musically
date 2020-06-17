@@ -1,9 +1,9 @@
 <h1><%= @song.name %></h1>
-Artist: <%= @song.artist %>
-Genre: <%= @song.genre %>
-Likes: <%= @song.likes %>
-<iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+@song.code %>"></iframe>
-<%= link_to "Edit Song Information", edit_song_path(@song)%>
-<%= link_to "Song Index", songs_path %>
-<%= button_to "Add Like", song_path(@song), method: :post %>
-<%= button_to "Delete Song", song_path(@song), method: :delete %>
+<p>Artist: <%= @song.artist %></p>
+<p>Genre: <%= @song.genre %></p>
+<p>Likes: <%= @song.likes %><p>
+<p><iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+@song.code %>"></iframe></p>
+<p><%= link_to "Edit Song Information", edit_song_path(@song)%></p>
+<p><%= link_to "Song Index", songs_path %></p>
+<p><%= button_to "Add Like", song_path(@song), method: :post %></p>
+<p><%= button_to "Delete Song", song_path(@song), method: :delete %></p>

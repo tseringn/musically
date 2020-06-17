@@ -25,7 +25,7 @@ class Song < ApplicationRecord
     end
 
     def code
-        self.url.split('/').last if self.url
+        self.url.split('=').last if self.url
       end
 
 end

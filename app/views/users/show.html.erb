@@ -1,14 +1,11 @@
-<hr color='purple'>
-<h1><%=@user.name%><br>
-<hr color='purple'>
+<h1><%=@user.name%></h1><br>
 <% if @user.profile_pic.attached? %>
  <img src="<%=url_for(@user.profile_pic)%>" width=250, height=250>  
 <% end %>
 <br>
 <%=button_to "Edit Profile", edit_user_path(@user), method: :get%>
-My playlists
-<ul>
+My playlists<br>
+
 <% @user.playlists.each do |pl| %>
-<li><%=link_to pl.title, playlist_path(pl.id) %></li>
+<%=link_to pl.title, playlist_path(pl.id) %><br>
 <% end %>
-</ul>
