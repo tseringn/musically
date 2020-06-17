@@ -13,12 +13,11 @@ class SongsController < ApplicationController
 
     def new
         @song = Song.new
-        @songs = Song.all.uniq
-        @artists = Song.artists
         @genres = Song.genres
     end
 
     def create
+        byebug
         @song = Song.create(song_params)
         if @song.valid?
             redirect_to song_path(@song)
@@ -62,7 +61,7 @@ class SongsController < ApplicationController
     end
 
     def song_params
-        params.require(:song).permit(:name, :artist, :genre, :favorite)
+        params.require(:song).permit(:name, :artist, :genre, :url)
     end
 
 end

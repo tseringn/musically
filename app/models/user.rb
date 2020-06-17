@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
     def most_liked
         like=0
-        song=nil
+        song=Song.first
         self.playlists.each do |pl|
             pl.songs.each { |s|
         if s.likes>like
@@ -19,4 +19,13 @@ class User < ApplicationRecord
         end
         song
     end
+
+    # def most_liked
+    #     self.playlists.each do |playlist|
+    #         playlist.songs.max_by do |song|
+    #             song.likes
+    #         end
+    #     end
+    # end
+                
 end

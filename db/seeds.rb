@@ -23,7 +23,11 @@ fantazia = Song.create(name: "FANTAZIA", artist: "Roy Blair", genre: "Pop", url:
 go = Song.create(name: "Go", artist: "The Black Keys", genre: "Rock", url: "https://www.youtube.com/watch?v=wpF5o7GMrgQ")
 summer = Song.create(name: "Eternal Summer", artist: "The Strokes", genre: "Rock", url: "https://www.youtube.com/watch?v=5c3EjeP2x-Q")
 boyfriend = Song.create(name: "Boyfriend", artist: "Selena Gomez", genre: "Pop", url: "https://www.youtube.com/watch?v=tSIk1QvIM2E")
-ride = Song.create(name: "Ride with Me", artist: "Pink Sweat$", genre: "Pop", url: "https://www.youtube.com/watch?v=Nvl90Nc_DzA")
+available = Song.create(name: "Available", artist: "Justin Bieber", genre: "Pop", url: "https://www.youtube.com/watch?v=P83pDFnoZnY")
+lonely = Song.create(name: "Mr. Lonely", artist: "Midland", genre: "Country", url: "https://www.youtube.com/watch?v=T4bvrywf0xg")
+where = Song.create(name: "Where or When", artist: "Wynton Marsalis", genre: "Jazz", url: "https://www.youtube.com/watch?v=9hKnP1WfsjE")
+nada = Song.create(name: "Mas Que Nada", artist: "Sergio Mendes & Brasil '66", genre: "Latin", url: "https://www.youtube.com/watch?v=05w5ch9l6zI")
+ride = Song.create(name: "Ride With Me", artist: "Pink Sweat$", genre: "Pop", url: "https://www.youtube.com/watch?v=Nvl90Nc_DzA")
 
 summer_favorites = Playlist.create(title: "Summer Favorites", user_id: User.first.id)
 coffeeshop = Playlist.create(title: "Coffeshop Aesthetics", user_id: User.first.id)
