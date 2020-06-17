@@ -1,8 +1,19 @@
+<div class= "form-inline">
+<%= f.text_field :name, placeholder: 'Full Name', :class=> "form-control" %><p><br><br>
+</div>
+<div class= "form-inline">
+<%= f.text_field :username, placeholder: 'Username', :class=> "form-control" %><p><br><br>
+</div>
+<div class= "form-inline">
+<%= f.password_field :password, placeholder: 'Password' , :class=> "form-control"%><p><br><br>
+</div>
+<div class= "form-inline">
+<%= f.label :"upload your profile picture" %><p><br><br>
+</div>
+<div class= "form-inline">
+<%=f.file_field :profile_pic, class: "value", :class=> "form-control"%><p><br><br>
+</div>
 
-<%= f.text_field :name, placeholder: 'Full Name' %><p>
-<%= f.text_field :username, placeholder: 'Username' %><p>
-<%= f.password_field :password, placeholder: 'Password' %><p>
-<%= f.label :"upload your profile picture" %><p>
-<%=f.file_field :profile_pic, class: "value"%><p>
-<%= f.submit :"create account"%>
+<%= f.submit :"create account", :class => "btn btn-success btn-lg"%>
+</div>
 
