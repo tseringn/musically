@@ -30,6 +30,9 @@ class SongsController < ApplicationController
 
 
     def show
+        Play.create(user_id: "#{@current_user.id}", song_id: "#{@song.id}")
+        @song.number_of_plays +=1
+        @song.save
     end
 
     def edit
