@@ -3,8 +3,8 @@
     <%= f.text_field :name %>
     <%= f.select :artist, @artists %>
     <%= f.select :genre, @genres %>
-    <%= f.label "Embed URL Link" %>
-    <%= f.text_field :url%>
+    <%= f.label "URL Link" %>
+    <%= f.url_field :url%>
     <%= f.submit %>
 <% end %>
 

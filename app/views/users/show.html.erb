@@ -33,7 +33,9 @@
     </div>
 </div>
 <hr style='border-top : 2px solid white'>
-<h1 class="display-5"><%=@current_user.name%>'s most like song</h1>
+<% if @current_user.playlists.count>0 %>
+
+<h1 class="display-5"><%=@current_user.name%>'s most liked song</h1>
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="<%= "http://www.youtube.com/embed/"+@current_user.most_liked.code %>" allowfullscreen></iframe>
   </div>
@@ -41,7 +43,7 @@
   <div class='container'>
     <div class='row'>
       <div class='col-sm'>
-      <%= button_to "Like", song_path(@current_user.most_liked.id), method: :post, :class =>"btn btn-outline-success btn-lg"%>
+      <%= button_to "#{@current_user.most_liked.likes} Likes", song_path(@current_user.most_liked.id), method: :post, :class =>"btn btn-outline-success btn-lg"%>
       </div>
     
       <div class='col-sm'>
@@ -54,6 +56,9 @@
   
 <br>
 <br>
+  
+    
+  
 <h1 class="display-5"><%=@current_user.name%>'s Playlists</h1>
 <div class="container">
 <div class= "row">
@@ -89,7 +94,15 @@
 <% end %>
 </div>
 </div>
-
+<% else %>
+<h4>Seems like you are new here...<br>
+Create a playlists</h4>
+<div class='d-flex justify-content-center'>
+<a href="<%=new_playlist_path%>"class='btn' > <svg class="bi bi-arrow-up-square-fill" width="6em" height="6em" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z"/>
+</svg></a>
+</div>
+<% end %>
 
 
 
