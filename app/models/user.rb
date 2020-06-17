@@ -19,13 +19,3 @@ class User < ApplicationRecord
         end
         song
     end
-
-    # def most_liked
-    #     self.playlists.each do |playlist|
-    #         playlist.songs.max_by do |song|
-    #             song.likes
-    #         end
-    #     end
-    # end
-                
-end

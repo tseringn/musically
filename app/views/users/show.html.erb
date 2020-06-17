@@ -38,13 +38,16 @@
   <div class='container'>
     <div class='row'>
       <div class='col-sm'>
+
       <%= button_to "Like", user_path(@current_user), method: :post, :class =>"btn btn-outline-success btn-lg"%>
       </div>
+
       <div class='col-sm'>
       <h4 style="text-align: right; background: green;"><%=@current_user.most_liked.number_of_plays%> plays</h4>
       </div>
     </div>
   </div>
+
 <br>
 <br>
 <h1 class="display-5"><%=@current_user.name%>'s Playlists</h1>
