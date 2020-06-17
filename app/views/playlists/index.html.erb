@@ -3,5 +3,5 @@
 <% @playlists.each do |playlist| %>
     <h2><%= link_to playlist.title, playlist_path(playlist) %></h2>
     <% playlist.songs.each do |song| %>
-    Name: <%= link_to song.name, song_path(song.id) %> - <%= song.artist %><br>
-    <%end%><%end%>
+    <p>Name: <%= link_to song.name, song_path(song.id) %> - <%= song.artist %><br>
+    <%end%><%end%></p>

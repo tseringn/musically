@@ -21,7 +21,7 @@ class SongsController < ApplicationController
     def create
         @song = Song.create(song_params)
         if @song.valid?
-            redirect_to user_path(@song.user)
+            redirect_to song_path(@song)
         else
             flash[:errors] = @song.errors.full_messages
             redirect_to new_song_path
@@ -41,7 +41,7 @@ class SongsController < ApplicationController
     def update
         @song.update(song_params)
         if @song.valid?
-            redirect_to user_path(@song.user)
+            redirect_to song_path(@song)
         else
             flash[:errors] = @song.errors.full_messages
             redirect_to new_song_path

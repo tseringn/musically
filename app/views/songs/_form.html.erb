@@ -3,5 +3,9 @@
     <%= f.text_field :name %>
     <%= f.select :artist, @artists %>
     <%= f.select :genre, @genres %>
+    <%= f.label "Embed URL Link" %>
+    <%= f.text_field :url%>
     <%= f.submit %>
 <% end %>
+
+<iframe width="650" height="366" src="https://www.youtube.com/embed/WijyreyFnwI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
