@@ -10,18 +10,15 @@
                         <div class = 'row'>
                             <div class='col-sm'>
                                 <h4 style="text-align : left"><%=@user.name%></h4>
-
                             </div>
                             <div clas= "col-sm">
                                 <%=button_to "Edit Profile", edit_user_path(@user), method: :get, :class => "btn btn-primary"%>
                             </div>
                         </div>
-
                         <div class = 'row'>
                             <div class = 'col-sm'>
                             <h4 style="text-align : left;">@<%=@user.username%></h4>
                             </div>
-
                             <div clas= "col-sm">
                             <%=button_to "Delete Account", edit_user_path(@user), method: :get, :class => "btn btn-danger"%>
                             </div>
@@ -45,15 +42,13 @@
       <div class='col-sm'>
       <%= button_to "#{@current_user.most_liked.likes} Likes", song_path(@current_user.most_liked.id), method: :post, :class =>"btn btn-outline-success btn-lg"%>
       </div>
-    
+
       <div class='col-sm'>
       <h4 style="text-align: right; background: green;"><%=@current_user.most_liked.number_of_plays%> plays</h4>
       </div>
     </div>
   </div>
 
-  
-  
 <br>
 <br>
   
@@ -63,8 +58,6 @@
 <div class="container">
 <div class= "row">
 <% @current_user.playlists.each do |plst| %>
-  
-
     <div class="col-sm">
 <div class="card" style="width: 20rem;">
   <img class="card-img-top" src="https://image.freepik.com/free-photo/red-headphones-listens-music-smartphone-yellow-background_34142-386.jpg" alt="Card image cap">
@@ -76,8 +69,6 @@
   </div>
   <ul class="list-group list-group-flush">
   <% plst.songs.each do |song| %>
-    
-  
     <li class="list-group-item"><%=link_to "#{song.name}-#{song.artist}", song_path(song.id)%>
     <a href="<%=song_path(song.id)%> <svg class="bi bi-play" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
@@ -90,24 +81,7 @@
   </div>
 </div>
 </div>
-
 <% end %>
 </div>
 </div>
-<% else %>
-<h4>Seems like you are new here...<br>
-Create a playlists</h4>
-<div class='d-flex justify-content-center'>
-<a href="<%=new_playlist_path%>"class='btn' > <svg class="bi bi-arrow-up-square-fill" width="6em" height="6em" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z"/>
-</svg></a>
-</div>
-<% end %>
-
-
-
-
-
-
-
 <br>

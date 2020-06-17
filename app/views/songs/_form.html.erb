@@ -1,11 +1,11 @@
 <%= form_for @song do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <%= f.select :artist, @artists %>
+    <%= f.label :artist %>
+    <%= f.text_field :artist%>
+    <%= f.label :genre %>
     <%= f.select :genre, @genres %>
-    <%= f.label "URL Link" %>
-    <%= f.url_field :url%>
+    <%= f.label "URL" %>
+    <%= f.text_field :url%>
     <%= f.submit %>
 <% end %>
-
-<iframe width="650" height="366" src="https://www.youtube.com/embed/WijyreyFnwI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
