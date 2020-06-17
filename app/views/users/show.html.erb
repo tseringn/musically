@@ -30,7 +30,9 @@
     </div>
 </div>
 <hr style='border-top : 2px solid white'>
-<h1 class="display-5"><%=@current_user.name%>'s Most Liked Song</h1>
+<% if @current_user.playlists.count>0 %>
+
+<h1 class="display-5"><%=@current_user.name%>'s most liked song</h1>
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="<%= "http://www.youtube.com/embed/"+@current_user.most_liked.code %>" allowfullscreen></iframe>
   </div>
@@ -38,8 +40,7 @@
   <div class='container'>
     <div class='row'>
       <div class='col-sm'>
-
-      <%= button_to "Like", user_path(@current_user), method: :post, :class =>"btn btn-outline-success btn-lg"%>
+      <%= button_to "#{@current_user.most_liked.likes} Likes", song_path(@current_user.most_liked.id), method: :post, :class =>"btn btn-outline-success btn-lg"%>
       </div>
 
       <div class='col-sm'>
@@ -50,6 +51,9 @@
 
 <br>
 <br>
+  
+    
+  
 <h1 class="display-5"><%=@current_user.name%>'s Playlists</h1>
 <div class="container">
 <div class= "row">

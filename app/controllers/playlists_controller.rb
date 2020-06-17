@@ -22,7 +22,7 @@ class PlaylistsController < ApplicationController
 
     def new
         @playlist = Playlist.new
-        @users = User.all.uniq
+
     end
 
     def create
