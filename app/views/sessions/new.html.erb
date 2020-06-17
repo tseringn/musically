@@ -3,16 +3,18 @@
 <br>
 <br>
 <br>
-<h1 class='page_header' style= "text-align : center">LogIn </h1>
+<h1 class='display-3' style= "text-align : center">LogIn </h1>
 <div class="d-flex justify-content-center">
+
+
 <%=form_for :session, url: login_path do |f|%>
-<%=f.label :username  %><p> 
-<%=f.text_field :username%><p>
 
-<%=f.label :password %><p>
-<%=f.password_field :password %><p>
+<%=f.text_field :username, :class => "form-control", :placeholder => "Your username"%><p>
+<br>
 
-<%=f.submit "Login"%>
+<%=f.password_field :password , :placeholder => "Your password",:class => "form-control"%><p>
+
+<%=f.submit "Login", :class => "btn btn-outline-primary btn-lg"%>
 
 <% end %>
 </div>

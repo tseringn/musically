@@ -14,7 +14,7 @@ class PlaylistsController < ApplicationController
     end
 
     def update
-        byebug
+        
         @song = Song.find(params[:playlist][:songs])
         @playlist.songs << @song
         redirect_to playlist_path(@playlist)

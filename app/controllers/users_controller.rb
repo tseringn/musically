@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :set_user, only: [:edit, :show]
     skip_before_action :authorized, only: [:new, :create, :welcome]
 
     def welcome
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
     
     def new
         @user=User.new
-        
+        render :layout => "welcome_layout"
     end
 
     def create
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
      end
 
      def show
-     @user=User.find(params[:id])
+  
      end
 
      def edit
