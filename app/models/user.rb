@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
     def most_liked
         like=0
-        song=nil
+        song=Song.first
         self.playlists.each do |pl|
             pl.songs.each { |s|
         if s.likes>like
@@ -19,4 +19,6 @@ class User < ApplicationRecord
         end
         song
     end
+
+    
 end
