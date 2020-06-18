@@ -30,7 +30,7 @@ nada = Song.create(name: "Mas Que Nada", artist: "Sergio Mendes & Brasil '66", g
 ride = Song.create(name: "Ride With Me", artist: "Pink Sweat$", genre: "Pop", url: "https://www.youtube.com/watch?v=Nvl90Nc_DzA")
 
 summer_favorites = Playlist.create(title: "Summer Favorites", user_id: User.first.id)
-coffeeshop = Playlist.create(title: "Coffeshop Aesthetics", user_id: User.first.id)
+coffeeshop = Playlist.create(title: "Coffeeshop Aesthetics", user_id: User.first.id)
 mood = Playlist.create(title: "Mood Boosters", user_id: User.last.id)
 
 SongPlaylist.create(song_id: bottom.id, playlist_id: summer.id)

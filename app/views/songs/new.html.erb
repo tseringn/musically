@@ -1,2 +1,21 @@
-<h1>Create a Song</h1>
+<style>
+h1 {
+     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-align: center;
+    color: lightblue;
+    padding: 20px;
+}
+
+.d-flex {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    text-align: center;
+    color: lightblue;
+    padding: 20px;
+}
+
+</style>
+<h1 class='display-3'style= 'text-align : center'> Create a Song</h1>
+<div class='d-flex justify-content-center'>
 <%= render 'form', locals: {song: @song}%>
+</div>

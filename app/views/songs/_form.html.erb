@@ -1,11 +1,21 @@
 <%= form_for @song do |f| %>
+<div class= "form-inline">
     <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :artist %>
-    <%= f.text_field :artist%>
-    <%= f.label :genre %>
-    <%= f.select :genre, @genres %>
-    <%= f.label "URL" %>
-    <%= f.text_field :url%>
-    <%= f.submit %>
+    <%= f.text_field :name, :class=> "form-control"%><br>
+</div>
+<div class= "form-inline">
+    <%= f.label :artist %> 
+    <%= f.text_field :artist, :class=> "form-control"%>
+</div>
+<div class= "form-inline">
+    <%= f.label :genre %> 
+    <%= f.select :genre, @genres, :class=> "form-control"%>
+</div>
+<div class= "form-inline">
+    <%= f.label "URL" %> 
+    <%= f.text_field :url, :class=> "form-control"%>
+</div>
+<div class= "form-inline">
+    <%= f.submit%>
 <% end %>
+</div>

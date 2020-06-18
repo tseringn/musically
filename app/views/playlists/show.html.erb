@@ -1,4 +1,4 @@
-<%= @playlist.title %>
+<h1><%= @playlist.title %></h1>
 <%= link_to "Add Songs to Playlist", edit_playlist_path %>
 <% @playlist.songs.each do |song| %>
     <%= render partial: 'songs/song', locals: {song: song}%>

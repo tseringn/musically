@@ -19,3 +19,4 @@ class User < ApplicationRecord
         end
         song
     end
+end
