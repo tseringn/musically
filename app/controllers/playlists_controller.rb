@@ -31,8 +31,8 @@ class PlaylistsController < ApplicationController
     end
 
     def destroy
-        @song.destroy
-        redirect_to songs_path
+        @playlist.destroy
+        redirect_to playlists_path
     end
 
     private

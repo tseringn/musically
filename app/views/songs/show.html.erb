@@ -1,37 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-h1, h2, h3 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    text-align: center;
-    color: lightblue;
-    padding: 20px;
-}
-
-body {
-    align: center;
-}
 
 
-
-</style>
-</head>
-<body>
-<h1><%= @song.name %></h1>
-<body>
-<div class="song-attributes">
-<h3>Artist: <%= @song.artist %><br>
-Genre: <%= @song.genre %><br>
-Likes: <%= @song.likes %><br><br>
-<iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+@song.code %>"></iframe>
+<div class='d-flex justify-content-center'>
+<div class="card" style="width: 60rem;">
+  <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="<%='http://www.youtube.com/embed/'+@song.code%>" allowfullscreen></iframe>
 </div>
-<h2>
-<button type="button" class="btn btn-outline-info"><%= link_to "Edit Song Information", edit_song_path(@song)%></button>
-<button type="button" class="btn btn-outline-info"><%= link_to "Song Index", songs_path %></button>
-<button type="button" class="btn btn-outline-info"><%= link_to "Add Like", song_path(@song), method: :post %></button>
-<button type="button" class="btn btn-outline-info"><%= link_to "Delete Song", song_path(@song), method: :delete %></button>
-    </h3>
-    </h2>
-</body>
+  <div class="card-body">
+    <h2 class="card-title" style='color: black; text-align: left'> <%=@song.name%>-<%=@song.artist%> || <%=@song.genre%></h2>
+    <div class='container'>
+    <div class='row'>
+      <div class='col-sm'>
+      <%= button_to "#{@song.likes} Likes", song_path(@song.id), method: :post, :class =>"btn btn-outline-success btn-lg"%>
+      </div>
+
+      <div class='col-sm'>
+      <h4 style="text-align: right; background: green;"><%=@song.number_of_plays%> plays</h4>
+      </div>
+    </div>
+  </div>
+  <br>
+
+    <div><a href="<%=edit_song_path(@song.id)%>" class="btn btn-outline-success">Edit Song</a></div>
+    <br>
+    <div class='d-flex justify-content-right'><a href="<%=song_path(@song.id)%>" class="btn btn-outline-danger">Delete Song</a></div>
+    <br>
+    
+  </div>
+</div>
+</div>
 

@@ -1,7 +1,42 @@
-<h1>All Playlists</h1>
-<%= link_to "Create a Playlist", new_playlist_path %>
-<% @playlists.each do |playlist| %>
-    <h2><%= link_to playlist.title, playlist_path(playlist) %></h2>
-    <% playlist.songs.each do |song| %>
-    <p>Name: <%= link_to song.name, song_path(song.id) %> - <%= song.artist %><br>
-    <%end%><%end%></p>
+
+
+
+
+
+    
+   
+<h1 class="display-4">Popular Playlists</h1>
+<%i=1%>
+<%r=0%>
+<div class="container">
+<div class= "row">
+<% @playlists.each do |plst| %>
+<%if i>3%>
+<%r+=1%>
+<%i=1%>
+<% end %>
+    <div>
+<div class="card" style="width: 20rem; border-radius: 30px; margin: 20px;">
+  <img class="card-img-top" src="https://purepng.com/public/uploads/medium/purepng.com-play-music-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597267b1ihx.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 font-color='red' class="card-title" style = "color : black"> <%=link_to plst.title, playlist_path(plst.id)%></h5>
+    <p class="card-text" style="color : gray"">Artists:<% plst.songs.artists.uniq.each do |ar| %>
+      <%= "#{ar}, "%>
+    <% end %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+  <% plst.songs.each do |song| %>
+    <li class="list-group-item"><%=link_to "#{song.name}-#{song.artist}", song_path(song.id)%>
+    <a href="<%=song_path(song.id)%> <svg class="bi bi-play" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+</svg></a></li>
+  </ul>
+  <% end %>
+  <div class="card-body">
+    <a href="<%=edit_playlist_path(plst.id)%>" class="card-link"><br>Add songs</a>
+    <a href="<%=new_playlist_path%>" class="card-link"> New Playlist</a>
+  </div>
+</div>
+
+</div>
+<% end %>

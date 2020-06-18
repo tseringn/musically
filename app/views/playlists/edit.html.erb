@@ -1,4 +1,7 @@
+
+<div class='d-flex justify-content-center'>
 <%= form_for @playlist do |f| %>
-    <%= f.collection_select :songs, @songs, :id, :name %>
-    <%= f.submit %>
-    <%end%>
+    <%= f.collection_select :songs, @songs, :id, :name%>
+    <%= f.submit :class => "btn btn-outline-success" %>
+ <%end%>
+</div>

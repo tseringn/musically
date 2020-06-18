@@ -1,6 +1,8 @@
+<div class='d-flex justify-content-center'>
 <%= form_for @playlist do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => 'form-control-lg' , :placeholder => 'Playlist tilte'%><br>
     <%= f.text_field :user_id, :value => "#{@current_user.id}", :type => "hidden"%>
-    <%= f.submit %>
+    <br>
+    <%= f.submit :class => "btn btn-outline-success btn-lg"%>
 <%end%>
+</div>
