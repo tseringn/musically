@@ -18,3 +18,8 @@
 
 <% end %>
 </div>
+
+<br>
+<% if flash[:errors] %>
+  <h4 style='color:red'>*<%=flash[:errors][0]%></h4>
+<% end %>

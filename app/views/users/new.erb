@@ -5,4 +5,15 @@
 <%= render :partial => "form", :locals=>{:f=>f}%>
 <% end %>
 </div>
+<br>
+<br>
+<% if flash[:errors] %>
+<ul style='list-style:none;'>
+<% flash[:errors].each do |error| %>
+<h4 style='color:red;'><li>*<%=error%></li></h4>
+<% end %>
+  
+<% end %>
+
+
 
