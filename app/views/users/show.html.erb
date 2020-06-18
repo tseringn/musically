@@ -1,11 +1,13 @@
-<br>
+
 <div class='container'>
     <div class=row>
         <% if @user.profile_pic.attached? %>
             <div class = 'col-mid'> <img src="<%=url_for(@user.profile_pic)%>" width=150, height=150  style='border-radius : 50%;'> 
             </div> 
         <% end %>
+        
             <div class='col-sm'>
+            <br>
                 <div class = 'container'>
                         <div class = 'row'>
                             <div class='col-sm'>
@@ -15,6 +17,7 @@
                                 <%=button_to "Edit Profile", edit_user_path(@user), method: :get, :class => "btn btn-primary"%>
                             </div>
                         </div>
+                        <br>
                         <div class = 'row'>
                             <div class = 'col-sm'>
                             <h4 style="text-align : left;">@<%=@user.username%></h4>
@@ -59,8 +62,8 @@
 <div class= "row">
 <% @current_user.playlists.each do |plst| %>
     <div class="col-sm">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" src="https://image.freepik.com/free-photo/red-headphones-listens-music-smartphone-yellow-background_34142-386.jpg" alt="Card image cap">
+<div class="card" style="width: 20rem; border-radius: 35px">
+  <img class="card-img-top" src="https://image.freepik.com/free-photo/red-headphones-listens-music-smartphone-yellow-background_34142-386.jpg" alt="Card image cap" style='border-radius: 35px;'>
   <div class="card-body">
     <h5 font-color='red' class="card-title" style = "color : black"> <%=plst.title%></h5>
     <p class="card-text" style="color : gray"">Artists:<% plst.songs.artists.uniq.each do |ar| %>
@@ -76,7 +79,7 @@
   </ul>
   <% end %>
   <div class="card-body">
-    <a href="<%=playlist_path(plst.id)%>" class="card-link"><br>Add songs</a>
+    <a href="<%=edit_playlist_path(plst.id)%>" class="card-link"><br>Add songs</a>
     <a href="<%=new_playlist_path%>" class="card-link"> New Playlist</a>
   </div>
 </div>
@@ -84,4 +87,13 @@
 <% end %>
 </div>
 </div>
-<br>
+<% else %>
+<h4>Seems like you are new here...<br>
+Create a playlists</h4>
+<div class='d-flex justify-content-center'>
+<a href="<%=new_playlist_path%>"class='btn' > <svg class="bi bi-arrow-up-square-fill" width="6em" height="6em" viewBox="0 0 16 16" fill="green" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z"/>
+</svg></a>
+</div>
+
+<% end %>

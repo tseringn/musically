@@ -1,10 +1,37 @@
-<h1>All Songs</h1>
+
 <p>
     
-
+<% if @result != nil %>
+  <% if @result[0].class==String %>
+  <div class='d-flex justify-content-center'>
+<div class="card" style="width: 30rem; margin: 5px; padding: 10px;">
+  <div class="card-header">
+    <h3 style='color : red'><%= @result[0]%></h3>
+  </div>
+</div>
+</div>
+  <% else %>
+  <div class='d-flex justify-content-center'>
+<div class="card" style="width: 30rem; margin: 5px; padding: 15px;">
+  <div class="card-header">
+    <h3 style='color : green'>All songs || <%= link_to "Create a Song", new_song_path%></h3>
+  </div>
+  <% @result.each do |song| %>
+  <ul class="list-group list-group-flush">
+   <a href='<%=song_path(song.id)%>'> <h5 style='color: black'> <%= song.name %>-<%= song.artist %>                  <svg class="bi bi-play-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+        </svg>
+    </a>
+  </ul>
+  <% end %></p>
+</div>
+</div>
+    
+  <% end %>
+<% else %>
 
 <div class='d-flex justify-content-center'>
-<div class="card" style="width: 30rem;">
+<div class="card" style="width: 30rem; margin: 5px; padding: 15px;">
   <div class="card-header">
     <h3 style='color : green'>All songs || <%= link_to "Create a Song", new_song_path%></h3>
   </div>
@@ -18,3 +45,4 @@
   <% end %></p>
 </div>
 </div>
+<% end %>

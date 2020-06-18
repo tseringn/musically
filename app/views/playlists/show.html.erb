@@ -1,7 +1,21 @@
-<%= @playlist.title %>
-<%= link_to "Add Songs to Playlist", edit_playlist_path %>
-<% @playlist.songs.each do |song| %>
-    <%= render partial: 'songs/song', locals: {song: song}%>
+  
+<div class="card mb-3">
+  <img class="card-img-top" src="https://consensus.sdsu.edu/TMC/wp-content/uploads/sites/3/2016/02/cropped-front-banner-1920x635-4.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h2 class="card-title"style='color:orange'><%= @playlist.title %></h2>
+    <ul>
+    <% @playlist.songs.each do |song| %>
+    <li><h4 class="card-text" style='color: black'><%=link_to song.name, song_path(song.id)%>-<%=song.artist%><a href='<%=song_path(song.id)%>'>     
+    <svg class="bi bi-play" width="2em" height="2em" viewBox="0 0 16 16" fill="black" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+</svg>
+</a></h4> </li>
     <%end%>
-    <%= button_to "Delete Playlist", playlist_path(@playlist), method: :delete %>
-    <%= link_to "Back to All Playlists", playlists_path %>
+    <div class='d-flex justify-content-center'>
+    <%= link_to "Add Songs to Playlist", edit_playlist_path , :class => "btn btn-outline-primary btn-lg"%>
+    </div>
+    <br>
+     <div class='d-flex justify-content-center'>
+    <%= button_to "Delete Playlist", playlist_path(@playlist.id), method: :delete, :class => "btn btn-outline-primary btn-lg"%>
+  </div>
+  </div>

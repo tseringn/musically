@@ -10,6 +10,16 @@ class SongsController < ApplicationController
         @song.save
         
     end
+    def search
+        @result=Song.where("name like '#{params[:search]}%' or artist like '#{params[:search]}%'")
+        
+        if @result[0] != nil
+        render 'index'
+        else @result=["No search result for '#{params[:search]}'"]
+        render 'index'
+        end
+    end
+
 
     def new
         @song = Song.new
@@ -17,7 +27,6 @@ class SongsController < ApplicationController
     end
 
     def create
-        byebug
         @song = Song.create(song_params)
         if @song.valid?
             redirect_to song_path(@song)
@@ -58,6 +67,7 @@ class SongsController < ApplicationController
    
 
     private
+    
 
     def find_song
         @song = Song.find(params[:id])

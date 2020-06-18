@@ -9,3 +9,12 @@ p {
     font-family: "Times New Roman", Times, serif;
     text-align: center;
 }
+#container {
+    display: flex;
+    border-radius: 25px;
+    flex-direction: column;
+    margin: 25px;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content:space-around;
+  }

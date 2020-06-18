@@ -1,11 +1,15 @@
+<div class='d-flex justify-content-center' >
 <%= form_for @song do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :artist %>
-    <%= f.text_field :artist%>
-    <%= f.label :genre %>
-    <%= f.select :genre, @genres %>
-    <%= f.label "URL" %>
-    <%= f.text_field :url%>
-    <%= f.submit %>
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :artist %><br>
+    <%= f.text_field :artist%><br>
+    <%= f.label :genre %><br>
+    <%= f.select :genre, @genres %><br>
+    <%= f.label "url" %><br>
+    <%= f.text_field :url%><br>
+    <br>
+    <%= f.submit :class => "btn btn-success" %>
 <% end %>
+</div>
