@@ -23,7 +23,7 @@
                             <h4 style="text-align : left;">@<%=@user.username%></h4>
                             </div>
                             <div clas= "col-sm">
-                            <%=button_to "Delete Account", edit_user_path(@user), method: :get, :class => "btn btn-danger"%>
+                            <%=button_to "Delete Account", user_path(@user), method: :delete, :class => "btn btn-danger"%>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
 <div class="card" style="width: 20rem; border-radius: 35px">
   <img class="card-img-top" src="https://image.freepik.com/free-photo/red-headphones-listens-music-smartphone-yellow-background_34142-386.jpg" alt="Card image cap" style='border-radius: 35px;'>
   <div class="card-body">
-    <h5 font-color='red' class="card-title" style = "color : black"> <%=plst.title%></h5>
+    <h5 font-color='red' class="card-title" style = "color : black"> <%=link_to plst.title, playlist_path(plst.id)%></h5>
     <p class="card-text" style="color : gray"">Artists:<% plst.songs.artists.uniq.each do |ar| %>
       <%= "#{ar}, "%>
     <% end %></p>

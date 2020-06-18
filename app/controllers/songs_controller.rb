@@ -8,6 +8,7 @@ class SongsController < ApplicationController
     def like
         @song.add_like
         @song.save
+        redirect_to song_path(@song.id)
         
     end
     def search
